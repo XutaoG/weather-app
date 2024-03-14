@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import WeatherQueryConfig from "./common/WeatherQueryConfig";
+import { useFetchWeatherDailyQuery } from "./store";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App()
+{
+	const queryConfig: WeatherQueryConfig = {
+		location: "32117 US",
+		timesteps: ["1d"],
+		units: "imperial"
+	};
+
+	const { data } = useFetchWeatherDailyQuery(queryConfig);
+
+	console.log(`Average temperature of next ${data?.timelines.daily?.length} days`);
+	console.log(data?.timelines.daily![0].values.temperatureAvg);
+	console.log(data?.timelines.daily![1].values.temperatureAvg);
+	console.log(data?.timelines.daily![2].values.temperatureAvg);
+	console.log(data?.timelines.daily![3].values.temperatureAvg);
+	console.log(data?.timelines.daily![4].values.temperatureAvg);
+	console.log(data?.timelines.daily![5].values.temperatureAvg);
+
+	return (
+		<div className="App">
+			App
+		</div>
+	);
 }
 
 export default App;
