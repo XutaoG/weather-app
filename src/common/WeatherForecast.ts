@@ -2,7 +2,6 @@ interface HourlyWeatherData
 {
 	time: string;
 	values: {
-		dewPoint: number;
 		humidity: number;
 		iceAccumulation: number;
 		precipitationProbability: number;
@@ -11,6 +10,7 @@ interface HourlyWeatherData
 		snowAccumulation: number;
 		snowDepth: number;
 		temperature: number;
+		temperatureApparent: number;
 		visibility: number;
 		windDirection: number;
 		windSpeed: number;
@@ -21,7 +21,6 @@ interface DailyWeatherData
 {
 	time: string;
 	values: {
-		dewPointAvg: number;
 		humidityAvg: number;
 		iceAccumulationAvg: number;
 		precipitationProbabilityAvg: number;
@@ -31,6 +30,9 @@ interface DailyWeatherData
 		snowDepthAvg: number;
 		sunriseTime: string;
 		sunsetTime: string;
+		temperatureApparentAvg: number;
+		temperatureApparentMax: number;
+		temperatureApparentMin: number;
 		temperatureAvg: number;
 		temperatureMax: number;
 		temperatureMin: number;
@@ -48,7 +50,7 @@ interface LocationData
 	type: string;
 }
 
-export default interface WeatherForecast
+export default interface WeatherData
 {
 	timelines: {
 		hourly: HourlyWeatherData[] | null; // Hourly weather data
@@ -56,3 +58,5 @@ export default interface WeatherForecast
 	};
 	location: LocationData; // Location data
 }
+
+export type { HourlyWeatherData, DailyWeatherData, LocationData };
