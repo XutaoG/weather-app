@@ -2,16 +2,11 @@ interface HourlyWeatherData
 {
 	time: string;
 	values: {
-		humidity: number;
-		iceAccumulation: number;
 		precipitationProbability: number;
-		rainAccumulation: number;
-		rainIntensity: number;
-		snowAccumulation: number;
-		snowDepth: number;
 		temperature: number;
 		temperatureApparent: number;
 		visibility: number;
+		weatherCode: number;
 		windDirection: number;
 		windSpeed: number;
 	};
@@ -21,10 +16,10 @@ interface DailyWeatherData
 {
 	time: string;
 	values: {
+		dewPointAvg: number;
 		humidityAvg: number;
-		iceAccumulationAvg: number;
 		precipitationProbabilityAvg: number;
-		rainAccumulationAvg: number;
+		rainAccumulationSum: number;
 		rainIntensityAvg: number;
 		snowAccumulationAvg: number;
 		snowDepthAvg: number;
@@ -36,6 +31,7 @@ interface DailyWeatherData
 		temperatureAvg: number;
 		temperatureMax: number;
 		temperatureMin: number;
+		uvIndexAvg: number;
 		visibilityAvg: number;
 		windDirectionAvg: number;
 		windSpeedAvg: number;

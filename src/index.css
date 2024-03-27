@@ -2,10 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-*
-{
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+	font-family: poppins
+}
+
+#root {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+.content-grid {
+	display: grid;
+	grid-template-areas:
+		'daily daily daily humidity humidity'
+		'daily daily daily precipitaton uv-index'
+		'daily daily daily visibility visibility'
+		'hourly hourly hourly-chart hourly-chart hourly-chart'
+		'daily-chart daily-chart daily-chart daily-chart daily-chart';
+}
+
+.daily-display {
+	grid-area: daily;
+}
+
+.humidity-display {
+	grid-area: humidity;
+}
+
+.precipitation-display {
+	grid-area: precipitaton
+}
+
+.uv-index-display {
+	grid-area: uv-index;
+}
+
+.visibility-display {
+	grid-area: visibility;
+}
+
+.hourly-forecast-display {
+	grid-area: hourly;
+}
+
+.hourly-forecast-chart {
+	grid-area: hourly-chart;
+}
+
+.daily-forecast-chart {
+	grid-area: daily-chart;
 }
