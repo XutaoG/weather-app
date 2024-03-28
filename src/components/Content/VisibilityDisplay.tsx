@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import TitleLabel from "../Reusable/TitleLabel";
 import { BsEye } from "react-icons/bs";
-import { useDailyWeatherData } from "../../hooks";
+import { useAppSelector, useCurrentDayWeatherData, useCurrentHourWeatherData } from "../../hooks";
 
 interface VisibilityDisplayProps
 {
@@ -17,10 +17,17 @@ function VisibilityDisplay({ className }: VisibilityDisplayProps)
 		className
 	));
 
-	const weatherData = useDailyWeatherData();
+	const currentHourWeatherData = useCurrentHourWeatherData();
+	const currentDayWeatherData = useCurrentDayWeatherData();
+	const userData = useAppSelector(state => state.userData);
 
-	const visibility = Math.round(weatherData!.values.visibilityAvg * 10) / 10;
+	let visibility = Math.round(currentDayWeatherData!.values.visibilityAvg * 10) / 10;
 
+	if (userData.selectedDayIndex === 0)
+	{
+		visibility = Math.round(currentHourWeatherData.values.visibility);
+	}
+	
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="Visibility" />

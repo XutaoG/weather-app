@@ -1,19 +1,32 @@
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
 import { BsCloudRain } from "react-icons/bs";
+import { ComponentPropsWithoutRef } from "react";
+import { getTemperatureFontColor } from "../../common/Utils";
 
-interface DailyForecastCardProps
+interface DailyForecastCardProps extends ComponentPropsWithoutRef<"div">
 {
 	day: string;
 	month: number;
 	date: number;
 	temperature: number;
 	rainProbability: number;
+	weatherImage: any;
 	selected?: boolean;
 	className?: string;
 }
 
-function DailyForecastCard({ day, month, date, temperature, rainProbability, selected, className }: DailyForecastCardProps)
+function DailyForecastCard({
+	day,
+	month,
+	date,
+	temperature,
+	selected,
+	rainProbability,
+	weatherImage,
+	className,
+	...rest
+}: DailyForecastCardProps)
 {
 	const styles = twMerge(classNames(
 		"bg-transparent flex justify-between items-center rounded-2xl py-5 px-3",
@@ -25,13 +38,13 @@ function DailyForecastCard({ day, month, date, temperature, rainProbability, sel
 	));
 
 	return (
-		<div className={ styles }>
-			<div className="">[Icon]</div>
+		<div className={ styles } { ...rest }>
+			<img className="w-12" src={ weatherImage } alt="weather" />
 			<div className="text-lg">
 				{ `${day}, ${month}/${date}` }
 			</div>
 			<div className="flex flex-col items-center gap-1">
-				<div className="text-3xl">
+				<div className={ `text-3xl ${getTemperatureFontColor(temperature)}` }>
 					{ `${temperature}˚` }
 				</div>
 				<div className="flex justify-center items-center gap-1">

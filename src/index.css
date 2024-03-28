@@ -21,8 +21,8 @@
 		'daily daily daily humidity humidity'
 		'daily daily daily precipitaton uv-index'
 		'daily daily daily visibility visibility'
-		'hourly hourly hourly-chart hourly-chart hourly-chart'
-		'daily-chart daily-chart daily-chart daily-chart daily-chart';
+		'hourly hourly-chart hourly-chart hourly-chart hourly-chart'
+		'hourly daily-chart daily-chart daily-chart daily-chart';
 }
 
 .daily-display {

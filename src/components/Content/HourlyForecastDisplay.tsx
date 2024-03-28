@@ -3,8 +3,9 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import TitleLabel from "../Reusable/TitleLabel";
 import HourlyForecastCard from "./HourlyForecastCard";
-import { useAppSelector } from "../../hooks";
-import { convertHourToImperial, convertTimeFromUTCtoLocal } from "../../common/Utils";
+import { useCurrentDayWeatherData, useHourlyWeatherDataFromDay } from "../../hooks";
+import { convertHourToImperial, getWeatherImage } from "../../common/Utils";
+import { Fragment } from "react/jsx-runtime";
 
 interface HourlyForecastDisplayProps
 {
@@ -18,32 +19,31 @@ function HourlyForecastDisplay({ className }: HourlyForecastDisplayProps)
 		className
 	));
 
-	const hourlyWeatherList = useAppSelector(state => state.weatherData.timelines.hourly);
+	const hourlyWeatherListInToday = useHourlyWeatherDataFromDay();
+	const currentDailyWeatherData = useCurrentDayWeatherData();
 
-	const selectedDate = hourlyWeatherList === null ?
-		0 : convertTimeFromUTCtoLocal(hourlyWeatherList[0].time).getDate();
-
-	const filteredWeatherList = hourlyWeatherList?.filter((weatherData) =>
+	const renderedHourlyForecastCards = hourlyWeatherListInToday.map((weatherData) =>
 	{
-		return (convertTimeFromUTCtoLocal(weatherData.time).getDate() === selectedDate);
-	});
+		const isNight = (new Date(weatherData.time).getTime() <= new Date(currentDailyWeatherData.values.sunriseTime).getTime() ||
+			new Date(weatherData.time).getTime() >= new Date(currentDailyWeatherData.values.sunsetTime).getTime());
 
-	const renderedHourlyForecastCards = filteredWeatherList?.map((weatherData) =>
-	{
 		return (
-			<HourlyForecastCard
-				key={ weatherData.time }
-				time={ convertHourToImperial(convertTimeFromUTCtoLocal(weatherData.time).getHours()) }
-				temperature={ Math.round(weatherData.values.temperature) }
-				rainProbability={ Math.round(weatherData.values.precipitationProbability) }
-			/>
+			<div key={ weatherData.time } className="flex flex-col">
+				<HourlyForecastCard
+					time={ convertHourToImperial(new Date(weatherData.time).getHours()) }
+					temperature={ Math.round(weatherData.values.temperature) }
+					rainProbability={ Math.round(weatherData.values.precipitationProbability) }
+					weatherImage={ getWeatherImage(weatherData.values.weatherCode, isNight).image }
+				/>
+				<div className="self-center bg-black/10 w-[90%] h-[1px]" />
+			</div>
 		);
 	});
 
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="Hourly Forecast" />
-			<div className="grow flex gap-4 overflow-x-auto overflow-y-hidden whitespace-nowrap">
+			<div className="grow flex flex-col gap-4 overflow-y-auto whitespace-nowrap">
 				{ renderedHourlyForecastCards }
 			</div>
 		</Panel>

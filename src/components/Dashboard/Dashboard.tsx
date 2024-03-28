@@ -1,4 +1,4 @@
-import DailyForecast from "./DailyForecast";
+import DailyForecastDisplay from "./DailyForecastDisplay";
 import LocationDisplay from "./LocationDisplay";
 import Logo from "./Logo";
 import SearchBar from "../Reusable/SearchBar";
@@ -11,7 +11,7 @@ function Dashboard()
 			<Logo />
 			<SearchBar className="self-stretch" placeholderMessage="Search for Places..." />
 			<LocationDisplay className="self-stretch" />
-			<DailyForecast className="self-stretch" />
+			<DailyForecastDisplay className="self-stretch" />
 		</div>
 	);
 }

@@ -17,7 +17,7 @@ interface ContentProps
 function Content({ className }: ContentProps)
 {
 	const styles = twMerge(classNames(
-		"px-8 py-6 max-w-[120rem] content-grid gap-x-6 gap-y-5",
+		"px-8 py-6 max-w-[120rem] content-grid gap-x-6 gap-y-4",
 		className
 	));
 
@@ -25,12 +25,12 @@ function Content({ className }: ContentProps)
 		<div className={ styles }>
 			<OverviewDisplay className="daily-display" />
 			<HumidityDisplay className="humidity-display min-h-48 min-w-96" />
-			<PrecipitationAccumulationDisplay className="precipitation min-h-48 min-w-64 max-w-60" />
-			<UvIndexDisplay className="uv-index-display min-h-48 min-w-64 max-w-60" />
+			<PrecipitationAccumulationDisplay className="precipitation min-h-48 min-w-56" />
+			<UvIndexDisplay className="uv-index-display min-h-48 min-w-56" />
 			<VisibilityDisplay className="visibility-display min-h-48 min-96" />
-			<HourlyForecastDisplay className="hourly-forecast-display h-64 min-w-80 max-w-[30rem]" />
-			<HourlyForecastChart className="hourly-forecast-chart h-64" />
-			<DailyForecastChart className="daily-forecast-chart h-80" />
+			<HourlyForecastDisplay className="hourly-forecast-display max-h-[41rem] min-w-96" />
+			<HourlyForecastChart className="hourly-forecast-chart h-80 w-[40rem]" />
+			<DailyForecastChart className="daily-forecast-chart h-80 w-[40rem]" />
 		</div>
 	);
 }

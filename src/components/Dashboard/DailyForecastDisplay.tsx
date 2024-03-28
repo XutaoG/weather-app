@@ -3,23 +3,33 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import TitleLabel from "../Reusable/TitleLabel";
 import DailyForecastCard from "./DailyForecastCard";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector, useDailyWeatherData } from "../../hooks";
+import { setSelectedDayIndex } from "../../store";
+import { getWeatherImage } from "../../common/Utils";
 
-interface DailyForecastProps
+interface DailyForecastDisplayProps
 {
 	className?: string;
 }
 
-function DailyForecast({ className }: DailyForecastProps)
+function DailyForecastDisplay({ className }: DailyForecastDisplayProps)
 {
-	const dailyWeatherList = useAppSelector(state => state.weatherData.timelines.daily);
-
 	const styles = twMerge(classNames(
 		"bg-neutral-300 flex flex-col gap-4 drop-shadow-xl",
 		className
 	));
 
-	const renderedDailyForecastCards = dailyWeatherList?.map((weatherData, index) =>
+	const dispatch = useAppDispatch();
+
+	const dailyWeatherList = useDailyWeatherData();
+	const selectedDayIndex = useAppSelector(state => state.userData.selectedDayIndex);
+
+	const onCardClick = (index: number) =>
+	{
+		dispatch(setSelectedDayIndex(index));
+	};
+
+	const renderedDailyForecastCards = dailyWeatherList.map((weatherData, index) =>
 	{
 		return <DailyForecastCard
 			key={ weatherData.time }
@@ -28,7 +38,9 @@ function DailyForecast({ className }: DailyForecastProps)
 			date={ new Date(weatherData.time).getDate() }
 			temperature={ Math.round(weatherData.values.temperatureAvg) }
 			rainProbability={ Math.round(weatherData.values.precipitationProbabilityAvg) }
-			selected={ index === 0 }
+			weatherImage={ getWeatherImage(weatherData.values.weatherCodeMax).image }
+			selected={ index === selectedDayIndex }
+			onClick={ () => onCardClick(index) }
 		/>;
 	});
 
@@ -42,4 +54,4 @@ function DailyForecast({ className }: DailyForecastProps)
 	);
 }
 
-export default DailyForecast;
+export default DailyForecastDisplay;

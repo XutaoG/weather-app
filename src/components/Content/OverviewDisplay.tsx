@@ -3,10 +3,13 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import SearchBar from "../Reusable/SearchBar";
 import TitleLabel from "../Reusable/TitleLabel";
-import { IoThermometerOutline, IoCalendar, IoLocation } from "react-icons/io5";
-import { WiWindDeg } from "react-icons/wi";
-import { BsSunrise, BsSunset, BsCloudRain, BsCloudSnow, BsWind } from "react-icons/bs";
-import WeatherImage from "../../asset/images/weather/mostly_clear_day.svg";
+import { RiArrowGoBackLine } from "react-icons/ri";
+import { useAppSelector, useCurrentHourWeatherData, useCurrentDayWeatherData, useAppDispatch } from "../../hooks";
+import { convertTimeToImperialHour, getWeatherImage } from "../../common/Utils";
+import WindStatusDisplay from "./WindStatusDisplay";
+import TemperatureDisplay from "./TemperatureDisplay";
+import GeneralInfoDisplay from "./GeneralInfoDisplay";
+import { setSelectedDayIndex } from "../../store";
 
 interface OverviewDisplayProps
 {
@@ -20,71 +23,78 @@ function OverviewDisplay({ className }: OverviewDisplayProps)
 		className
 	));
 
+	const dispatch = useAppDispatch();
+
+	const currentHourWeatherData = useCurrentHourWeatherData();
+	const currentDayWeatherData = useCurrentDayWeatherData();
+	const selectedDate = new Date(currentDayWeatherData.time);
+	const userData = useAppSelector(state => state.userData);
+
+	let titleLabel = "Future Forecast";
+	let temperature = Math.round(currentDayWeatherData.values.temperatureAvg);
+	let temperatureApparent = Math.round(currentDayWeatherData.values.temperatureApparentAvg);
+	let weatherCondition = getWeatherImage(currentDayWeatherData.values.weatherCodeMax);
+	let windSpeed = Math.round(currentDayWeatherData.values.windSpeedAvg * 10) / 10;
+	let windDirection = Math.round(currentDayWeatherData.values.windDirectionAvg);
+	let precipitationProbability = Math.round(currentDayWeatherData.values.precipitationProbabilityAvg);
+
+	if (userData.selectedDayIndex === 0)
+	{
+		titleLabel = "Today's Weather Overview";
+		temperature = Math.round(currentHourWeatherData.values.temperature);
+		temperatureApparent = Math.round(currentHourWeatherData.values.temperatureApparent);
+		windSpeed = Math.round(currentHourWeatherData.values.windSpeed * 10) / 10;
+		windDirection = Math.round(currentHourWeatherData.values.windDirection);
+		weatherCondition = getWeatherImage(currentHourWeatherData.values.weatherCode);
+		precipitationProbability = Math.round(currentHourWeatherData.values.precipitationProbability);
+	}
+
+	const setDayToToday = () =>
+	{
+		dispatch(setSelectedDayIndex(0));
+	}
+
 	return (
 		<Panel className={ styles }>
 			<SearchBar placeholderMessage="Search for Places..." />
-			<TitleLabel message="Daily Overview" />
 			<div className="flex gap-4">
-				<Panel className="grow bg-neutral-400 flex flex-col">
-					<div className="flex items-center gap-4">
-						<img className="w-20" src={ WeatherImage } alt="weather" />
-						<div className="text-xl">Mostly Clear</div>
-					</div>
-					<div className="flex gap-4 items-center">
-						<div className="text-8xl font-extralight">82˚</div>
-						<div className="flex flex-col gap-2">
-							<div className="text-xl">H: 85˚</div>
-							<div className="text-xl">L: 67˚</div>
+				<TitleLabel message={ titleLabel } />
+				{
+					userData.selectedDayIndex === 0 ? null :
+						<div className="w-fit px-3 py-1 rounded-xl bg-neutral-400 font-semibold flex 
+							items-center gap-2 cursor-pointer hover:bg-neutral-500 hover:text-white"
+							onClick={ setDayToToday }>
+							View Today
+							<RiArrowGoBackLine />
 						</div>
-					</div>
-					<div className="flex items-center text-xl">
-						<IoThermometerOutline className="text-3xl" />Feels like 84˚
-					</div>
-				</Panel>
-				<Panel className="bg-neutral-300 min-h-48 min-w-48 flex flex-col gap-4">
-					<TitleLabel message="Wind Status" />
-					<div className="grow flex flex-col justify-between">
-						<div className="self-end flex flex-col gap-2">
-							<div className="text-5xl">
-								4.2<span className="text-base">MPH</span>
-							</div>
-							<div className="flex justify-end items-center gap-1">
-								<WiWindDeg className="text-3xl" />
-								<div className="text-xl">126˚</div>
-							</div>
-						</div>
-						<BsWind className="text-5xl" />
-					</div>
-				</Panel>
+				}
 			</div>
-			<Panel className="grow bg-neutral-300 flex gap-12">
-				<div className="flex flex-col justify-center gap-2">
-					<div className="text-5xl font-light">10:45 AM</div>
-					<div className="flex items-center gap-2 text-lg">
-						<IoCalendar className="text-2xl" />Mon, Mar 12, 2024
-					</div>
-					<div className="flex items-center gap-2 text-lg">
-						<IoLocation className="text-2xl" />Orlando, FL
-					</div>
-				</div>
-				<div className="flex gap-8">
-					<div className="h-full w-1 bg-neutral-900 rounded-full" />
-					<div className="flex flex-col justify-center gap-2">
-						<div className="flex items-center gap-2">
-							<BsSunrise className="text-2xl" /> Sunrise: 7:45 AM
-						</div>
-						<div className="flex items-center gap-2">
-							<BsSunset className="text-2xl" /> Sunset: 6:12 PM
-						</div>
-						<div className="flex items-center gap-2">
-							<BsCloudRain className="text-2xl" /> Rain: 30%
-						</div>
-						<div className="flex items-center gap-2">
-							<BsCloudSnow className="text-2xl" />Snow: 10%
-						</div>
-					</div>
-				</div>
-			</Panel>
+			<div className="flex gap-4">
+				<TemperatureDisplay
+					className="grow"
+					temperature={ temperature }
+					temperatureHigh={ Math.round(currentDayWeatherData.values.temperatureMax) }
+					temperatureLow={ Math.round(currentDayWeatherData.values.temperatureMin) }
+					temperatureApparent={ temperatureApparent }
+					weatherImage={ weatherCondition.image }
+					weatherCondition={ weatherCondition.condition } />
+				<WindStatusDisplay
+					windSpeed={ windSpeed }
+					windDirection={ windDirection } />
+			</div>
+			<GeneralInfoDisplay
+				className="grow"
+				date={
+					`${selectedDate.toDateString().substring(0, 3)},
+					${selectedDate.toDateString().substring(4, 7)} 
+					${selectedDate.getDate()},
+					${selectedDate.getFullYear()}`
+				}
+				location={ userData.location }
+				sunriseTime={ convertTimeToImperialHour(new Date(currentDayWeatherData.values.sunriseTime)) }
+				sunsetTime={ convertTimeToImperialHour(new Date(currentDayWeatherData.values.sunsetTime)) }
+				precipitationProbability={ precipitationProbability }
+				daysInFuture={ userData.selectedDayIndex } />
 		</Panel>
 	);
 }

@@ -2,9 +2,13 @@ interface HourlyWeatherData
 {
 	time: string;
 	values: {
+		dewPoint: number;
+		humidity: number;
 		precipitationProbability: number;
+		rainAccumulation: number;
 		temperature: number;
 		temperatureApparent: number;
+		uvIndex: number;
 		visibility: number;
 		weatherCode: number;
 		windDirection: number;
@@ -33,6 +37,7 @@ interface DailyWeatherData
 		temperatureMin: number;
 		uvIndexAvg: number;
 		visibilityAvg: number;
+		weatherCodeMax: number;
 		windDirectionAvg: number;
 		windSpeedAvg: number;
 	};
@@ -49,8 +54,8 @@ interface LocationData
 export default interface WeatherData
 {
 	timelines: {
-		hourly: HourlyWeatherData[] | null; // Hourly weather data
-		daily: DailyWeatherData[] | null; // Daily weather data
+		hourly: HourlyWeatherData[]; // Hourly weather data
+		daily: DailyWeatherData[]; // Daily weather data
 	};
 	location: LocationData; // Location data
 }

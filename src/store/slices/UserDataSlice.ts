@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
-	location: string | null;
-	selectedDate: string | null;
+	location: string;
+	selectedDayIndex: number;
 } = {
-	location: null,
-	selectedDate: null
+	location: "New York City, NY",
+	selectedDayIndex: 0
 };
 
 const userDataSlice = createSlice({
@@ -17,13 +17,13 @@ const userDataSlice = createSlice({
 			// payload will contain new location string
 			state.location = action.payload;
 		},
-		setSelectedDate: (state, action: PayloadAction<string>) =>
+		setSelectedDayIndex: (state, action: PayloadAction<number>) =>
 		{
-			// payload will contain new selected date string
-			state.selectedDate = action.payload;
+			// payload will contain new index of the selected day
+			state.selectedDayIndex = action.payload;
 		}
 	}
 });
 
 export const userDataReducer = userDataSlice.reducer;
-export const { setLocation, setSelectedDate } = userDataSlice.actions;
+export const { setLocation, setSelectedDayIndex } = userDataSlice.actions;

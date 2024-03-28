@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import TitleLabel from "../Reusable/TitleLabel";
 import { BsDroplet } from "react-icons/bs";
-import { useDailyWeatherData } from "../../hooks";
+import { useAppSelector, useCurrentDayWeatherData, useCurrentHourWeatherData } from "../../hooks";
 
 interface HumidityDisplayProps
 {
@@ -17,10 +17,18 @@ function HumidityDisplay({ className }: HumidityDisplayProps)
 		className
 	));
 
-	const weatherData = useDailyWeatherData();
+	const currentHourWeatherData = useCurrentHourWeatherData();
+	const currentDayWeatherData = useCurrentDayWeatherData();
+	const userData = useAppSelector(state => state.userData);
 
-	const humidity = Math.round(weatherData!.values.humidityAvg);
-	const dewPoint = Math.round(weatherData!.values.dewPointAvg);
+	let humidity = Math.round(currentDayWeatherData.values.humidityAvg);
+	let dewPoint = Math.round(currentDayWeatherData.values.dewPointAvg);
+
+	if (userData.selectedDayIndex === 0)
+	{
+		humidity = Math.round(currentHourWeatherData.values.humidity);
+		dewPoint = Math.round(currentHourWeatherData.values.dewPoint);
+	}
 
 	return (
 		<Panel className={ styles }>

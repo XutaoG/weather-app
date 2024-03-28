@@ -5,6 +5,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { weatherDataReducer } from "./slices/WeatherDataSlice";
 import { setWeatherData } from "./slices/WeatherDataSlice";
 import { userDataReducer } from "./slices/UserDataSlice";
+import { setLocation, setSelectedDayIndex } from "./slices/UserDataSlice";
 
 const store = configureStore({
 	reducer: {
@@ -30,3 +31,4 @@ export type AppDispatch = typeof store.dispatch;
 export { setWeatherData };
 export { useFetchWeatherDailyQuery };
 export { useFetchCityQuery };
+export { setLocation, setSelectedDayIndex };

@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
 import TitleLabel from "../Reusable/TitleLabel";
 import { WiRain } from "react-icons/wi";
-import { useDailyWeatherData } from "../../hooks";
+import { useAppSelector, useCurrentDayWeatherData, useCurrentHourWeatherData } from "../../hooks";
 
 interface PrecipitationAccumulationDisplayProps
 {
@@ -17,9 +17,16 @@ function PrecipitationAccumulationDisplay({ className }: PrecipitationAccumulati
 		className
 	));
 
-	const weatherData = useDailyWeatherData();
+	const currentHourWeatherData = useCurrentHourWeatherData();
+	const currentDayWeatherData = useCurrentDayWeatherData();
+	const userData = useAppSelector(state => state.userData);
 
-	const precipitation = weatherData!.values.rainAccumulationSum;
+	let precipitation =  currentDayWeatherData.values.rainAccumulationSum;
+
+	if (userData.selectedDayIndex === 0)
+	{
+		precipitation = currentHourWeatherData.values.rainAccumulation;
+	}
 
 	return (
 		<Panel className={ styles }>
@@ -29,7 +36,7 @@ function PrecipitationAccumulationDisplay({ className }: PrecipitationAccumulati
 					{ `${precipitation}″` }
 				</div>
 				<div className="self-stretch flex justify-between items-center">
-					<div className="self-start font-xl text-wrap">
+					<div className="self-start font-xl w-28">
 						{ getPrecipitationAccumulationRating(precipitation) }
 					</div>
 					<WiRain className="self-start text-6xl" />
