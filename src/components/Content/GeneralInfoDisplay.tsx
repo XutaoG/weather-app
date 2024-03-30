@@ -5,11 +5,12 @@ import { BsCloudRain, BsSunriseFill, BsSunsetFill } from "react-icons/bs";
 import { IoCalendar, IoLocation } from "react-icons/io5";
 import RealTimeDisplay from "./RealTimeDisplay";
 import TitleLabel from "../Reusable/TitleLabel";
+import LocationData from "../../common/LocationData";
 
 interface GeneralInfoDisplayProps
 {
 	date: string;
-	location: string;
+	location: LocationData;
 	sunriseTime: string;
 	sunsetTime: string;
 	precipitationProbability: number;
@@ -56,9 +57,9 @@ function GeneralInfoDisplay({
 					{ date }
 				</div>
 				{ daysInFuture === 0 ? <RealTimeDisplay /> : null }
-				<div className="flex items-center gap-2 text-lg">
+				<div className="flex items-start gap-2 text-lg min-w-60 max-w-60">
 					<IoLocation className="text-2xl" />
-					{ location }
+					{ `${location.city}, ${location.state}` }
 				</div>
 			</div>
 			<div className="min-w-56 flex gap-8">
@@ -78,7 +79,7 @@ function GeneralInfoDisplay({
 					</div>
 				</div>
 			</div>
-		</Panel>
+		</Panel >
 	);
 }
 

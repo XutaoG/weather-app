@@ -7,6 +7,7 @@ function RealTimeDisplay()
 	useEffect(() =>
 	{
 		setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
+
 	}, []);
 
 	return (

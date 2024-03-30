@@ -84,7 +84,7 @@ function MenuBar({ className }: MenuBarProps)
 			</div>
 			<div
 				className="px-2 flex justify-center items-center rounded-3xl shadow-c">
-				{ location }
+				{ `${location.city}, ${location.state}` }
 			</div>
 		</div>
 	);

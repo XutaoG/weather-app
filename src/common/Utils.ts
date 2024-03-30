@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import weatherCodeMap from "./WeatherCodeMap";
 import { twMerge } from "tailwind-merge";
+import WeatherData from "./WeatherForecast";
+import LocationData from "./LocationData";
 
 const convertHourToImperial = (hour: number) =>
 {
@@ -114,10 +116,56 @@ const getTemperatureFontColor = (temperature: number) =>
 	));
 };
 
+// Converts all time in UTC to local time
+const adjustWeatherDataTime = (weatherData: WeatherData) =>
+{
+	for (let i = 0; i < weatherData.timelines.daily.length; i++)
+	{
+		weatherData.timelines.daily[i].time =
+			new Date(new Date(weatherData.timelines.daily[i].time).getTime()).toString();
+	}
+
+	for (let i = 0; i < weatherData.timelines.hourly.length; i++)
+	{
+		weatherData.timelines.hourly[i].time =
+			new Date(new Date(weatherData.timelines.hourly[i].time).getTime()).toString();
+	}
+};
+
+// Get matching city names
+const cities = require("../asset/US_States_and_Cities.json");
+
+const getMatchingCityNames = (keyword: string) =>
+{
+	const matchingCities: LocationData[] = [];
+
+	if (keyword.trim().length < 3)
+	{
+		return [];
+	}
+
+	for (const key in cities)
+	{
+		for (const city of cities[key])
+		{
+			if ((city as string).toLowerCase().startsWith(keyword.toLowerCase()))
+			{
+				matchingCities.push({
+					city,
+					state: key
+				});
+			}
+		}
+	}
+	return matchingCities;
+};
+
 export
 {
 	convertHourToImperial,
 	convertTimeToImperialHour,
 	getWeatherImage,
-	getTemperatureFontColor
+	getTemperatureFontColor,
+	adjustWeatherDataTime,
+	getMatchingCityNames
 };

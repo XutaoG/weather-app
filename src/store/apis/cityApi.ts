@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import CityQueryConfig from "../../common/CityQueryConfig";
-import CityData from "../../common/CityData";
+import CityData from "../../common/LocationData";
 
 const cityApiKey = "EnskFR0xaV1y0TbnHL2nFg==39QJywEl5Dm7mNvt";
 

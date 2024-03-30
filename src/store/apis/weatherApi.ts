@@ -10,7 +10,7 @@ const weatherApi = createApi({
 	endpoints(builder)
 	{
 		return {
-			fetchWeatherDaily: builder.query<WeatherData, WeatherQueryConfig>({
+			fetchWeatherData: builder.query<WeatherData, WeatherQueryConfig>({
 				query: (queryConfig) =>
 				{
 					return {
@@ -33,4 +33,4 @@ const weatherApi = createApi({
 });
 
 export { weatherApi };
-export const { useFetchWeatherDailyQuery } = weatherApi;
+export const { useFetchWeatherDataQuery } = weatherApi;

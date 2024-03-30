@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
-import SearchBar from "../Reusable/SearchBar";
 import TitleLabel from "../Reusable/TitleLabel";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import { useAppSelector, useCurrentHourWeatherData, useCurrentDayWeatherData, useAppDispatch } from "../../hooks";
@@ -56,7 +55,6 @@ function OverviewDisplay({ className }: OverviewDisplayProps)
 
 	return (
 		<Panel className={ styles }>
-			<SearchBar placeholderMessage="Search for Places..." />
 			<div className="flex gap-4">
 				<TitleLabel message={ titleLabel } />
 				{

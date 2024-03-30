@@ -60,4 +60,4 @@ export default interface WeatherData
 	location: LocationData; // Location data
 }
 
-export type { HourlyWeatherData, DailyWeatherData, LocationData };
+export type { HourlyWeatherData, DailyWeatherData };
