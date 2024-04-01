@@ -12,9 +12,9 @@ import WeatherData from "./common/WeatherForecast";
 function App()
 {
 	const dispatch = useAppDispatch();
-	const location = useAppSelector(state => state.userData.location);
+	// const location = useAppSelector(state => state.userData.location);
 
-	console.log("Rerendering App...");
+	// console.log("Rerendering App...");
 
 	// const weatherQueryConfig: WeatherQueryConfig = {
 	// 	location: `${location.city} ${location.state}`,
@@ -48,7 +48,6 @@ function App()
 	{
 		dispatch(setWeatherData(initialWeatherData));
 	}, [dispatch, initialWeatherData]);
-
 
 	return (
 		<Fragment>

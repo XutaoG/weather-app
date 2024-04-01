@@ -17,12 +17,41 @@
 
 .content-grid {
 	display: grid;
+	grid-template-columns: 24rem 4rem 4rem 14rem 14rem;
+	grid-template-rows: 12rem 14rem 12rem 20rem 20rem;
 	grid-template-areas:
 		'daily daily daily humidity humidity'
 		'daily daily daily precipitaton uv-index'
 		'daily daily daily visibility visibility'
 		'hourly hourly-chart hourly-chart hourly-chart hourly-chart'
 		'hourly daily-chart daily-chart daily-chart daily-chart';
+}
+
+@media (max-width: 90rem) {
+	.content-grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 40rem 12rem 14rem 12rem 20rem 20rem 20rem;
+		grid-template-areas:
+			'daily daily'
+			'humidity humidity'
+			'precipitation uv-index'
+			'visibility visibility'
+			'hourly hourly'
+			'hourly-chart hourly-chart'
+			'daily-chart daily-chart'
+	}
+}
+
+@media (min-width: 120rem) {
+	.content-grid {
+		grid-template-columns: 24rem 4rem 4rem 14rem 14rem 24rem;
+		grid-template-rows: 12rem 14rem 12rem 20rem;
+		grid-template-areas:
+			'daily daily daily humidity humidity hourly'
+			'daily daily daily precipitaton uv-index hourly'
+			'daily daily daily visibility visibility hourly'
+			'hourly-chart hourly-chart hourly-chart hourly-chart daily-chart daily-chart'
+	}
 }
 
 .daily-display {

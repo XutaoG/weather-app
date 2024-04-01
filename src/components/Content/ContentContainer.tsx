@@ -5,7 +5,7 @@ function ContentContainer()
 {
 	return (
 		<div className="flex-grow bg-neutral-200 flex flex-col z-20 shadow-b">
-			<MenuBar className="self-stretch" />
+			<MenuBar className="self-stretch sticky top-0" />
 			<Content className="grow self-center" />
 		</div>
 	);

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type WeatherData from "../../common/WeatherForecast";
 import WeatherQueryConfig from "../../common/WeatherQueryConfig";
 
-const weatherApikey = "16WIXaOUlyoPqmOqo1AfOxq9kmx1420w";
+const tommorrowIoApikey = "16WIXaOUlyoPqmOqo1AfOxq9kmx1420w";
 
 const weatherApi = createApi({
 	reducerPath: "weather",
@@ -23,7 +23,7 @@ const weatherApi = createApi({
 						},
 						headers: {
 							"content-type": "application/json",
-							"apikey": weatherApikey
+							"apikey": tommorrowIoApikey
 						}
 					};
 				}
