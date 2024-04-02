@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/weather-app/static/css/main.a31c69f7.css",
+    "main.js": "/weather-app/static/js/main.ccea4b45.js",
+    "static/media/logo.svg": "/weather-app/static/media/logo.4a421b145414e989f282eb06545548c5.svg",
+    "static/media/snow_heavy.svg": "/weather-app/static/media/snow_heavy.4cffeb673a0a90b50063.svg",
+    "static/media/tstorm.svg": "/weather-app/static/media/tstorm.9e52d5b4150228011d38.svg",
+    "static/media/rain_heavy.svg": "/weather-app/static/media/rain_heavy.a8f45dd6a6cc20f4088b.svg",
+    "static/media/freezing_rain_heavy.svg": "/weather-app/static/media/freezing_rain_heavy.18cf8e4c92a46451ee84.svg",
+    "static/media/rain.svg": "/weather-app/static/media/rain.feacb68d2749d75ccca2.svg",
+    "static/media/snow.svg": "/weather-app/static/media/snow.fffba143419a418d5c57.svg",
+    "static/media/fog.svg": "/weather-app/static/media/fog.e75170b4eedf934bba20.svg",
+    "static/media/freezing_rain.svg": "/weather-app/static/media/freezing_rain.42d0c8cfff73e674dc45.svg",
+    "static/media/fog_light.svg": "/weather-app/static/media/fog_light.1dacf2f677225621c51c.svg",
+    "static/media/rain_light.svg": "/weather-app/static/media/rain_light.a893b49489eb2fd8dcbf.svg",
+    "static/media/snow_light.svg": "/weather-app/static/media/snow_light.16d9e78bab19a4ea1504.svg",
+    "static/media/freezing_rain_light.svg": "/weather-app/static/media/freezing_rain_light.994c81a3c01bf0f262dd.svg",
+    "static/media/drizzle.svg": "/weather-app/static/media/drizzle.9115cb327c5b6d2641bb.svg",
+    "static/media/flurries.svg": "/weather-app/static/media/flurries.6895fe846df4a0288807.svg",
+    "static/media/ice_pellets_heavy.svg": "/weather-app/static/media/ice_pellets_heavy.663170a3f01e38791514.svg",
+    "static/media/cloudy.svg": "/weather-app/static/media/cloudy.cf1bf27d0d1e3ec3bb88.svg",
+    "static/media/freezing_drizzle.svg": "/weather-app/static/media/freezing_drizzle.6ef1e0d260af9a5cf254.svg",
+    "static/media/partly_cloudy_night.svg": "/weather-app/static/media/partly_cloudy_night.c894e11a479b5ab27105.svg",
+    "static/media/mostly_clear_night.svg": "/weather-app/static/media/mostly_clear_night.e5bcba55f850a88c2d0a.svg",
+    "static/media/ice_pellets.svg": "/weather-app/static/media/ice_pellets.7003982c30f9eb222487.svg",
+    "static/media/partly_cloudy_day.svg": "/weather-app/static/media/partly_cloudy_day.a380af6b60dac049b335.svg",
+    "static/media/mostly_clear_day.svg": "/weather-app/static/media/mostly_clear_day.a06e1cbf55878de8621c.svg",
+    "static/media/mostly_cloudy.svg": "/weather-app/static/media/mostly_cloudy.c4c178c502b4de16b545.svg",
+    "static/media/ice_pellets_light.svg": "/weather-app/static/media/ice_pellets_light.d3a475d86061682fd4ec.svg",
+    "index.html": "/weather-app/index.html",
+    "static/media/clear_night.svg": "/weather-app/static/media/clear_night.dc9e7abe8ef89ca93a54.svg",
+    "static/media/clear_day.svg": "/weather-app/static/media/clear_day.ead9013174262c77b562.svg",
+    "main.a31c69f7.css.map": "/weather-app/static/css/main.a31c69f7.css.map",
+    "main.ccea4b45.js.map": "/weather-app/static/js/main.ccea4b45.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a31c69f7.css",
+    "static/js/main.ccea4b45.js"
+  ]
+}
