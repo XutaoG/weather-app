@@ -25,7 +25,7 @@ function TemperatureDisplay({
 	className }: TemperatureDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-blue flex flex-col text-neutral-100",
+		"bg-blue flex flex-col text-neutral-100 shadow-none",
 		className
 	));
 
@@ -51,7 +51,7 @@ function TemperatureDisplay({
 			<div className="flex flex-col gap-2">
 				<div className="text-lg">Temperature Average</div>
 				<div className="flex items-center text-xl">
-					<IoThermometerOutline className="text-3xl" />
+					<IoThermometerOutline className={ `text-3xl ${getTemperatureFontColor(temperatureApparent)}` } />
 					<div>
 						Feels like <span className={ `font-medium ${getTemperatureFontColor(temperatureApparent)}` }>
 							{ temperatureApparent }˚

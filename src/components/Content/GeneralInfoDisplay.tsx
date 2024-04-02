@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
 import Panel from "../Reusable/Panel";
-import { BsCloudRain, BsSunriseFill, BsSunsetFill } from "react-icons/bs";
+import { BsCloudRainFill, BsSunriseFill, BsSunsetFill } from "react-icons/bs";
 import { IoCalendar, IoLocation } from "react-icons/io5";
 import RealTimeDisplay from "./RealTimeDisplay";
 import TitleLabel from "../Reusable/TitleLabel";
@@ -29,7 +29,7 @@ function GeneralInfoDisplay({
 }: GeneralInfoDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-light-gray-xl flex gap-4 text-neutral-100",
+		"bg-light-gray-xl flex gap-4 text-neutral-100 shadow-none",
 		className
 	));
 
@@ -52,7 +52,7 @@ function GeneralInfoDisplay({
 		<Panel className={ styles }>
 			<div className="min-w-56 flex flex-col justify-start items-start gap-4">
 				<TitleLabel message={ titleDisplay } />
-				<div className="flex items-center gap-2 text-lg text-dark-blue">
+				<div className="flex items-center gap-2 text-lg font-semibold text-dark-blue">
 					<IoCalendar className="text-4xl " />
 					{ date }
 				</div>
@@ -74,7 +74,7 @@ function GeneralInfoDisplay({
 						{ `Sunset: ${sunsetTime}` }
 					</div>
 					<div className="flex items-center gap-2">
-						<BsCloudRain className="text-2xl" />
+						<BsCloudRainFill className="text-2xl text-sky-300" />
 						{ `Precipitation: ${precipitationProbability}%` }
 					</div>
 				</div>

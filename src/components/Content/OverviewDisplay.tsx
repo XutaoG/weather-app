@@ -18,7 +18,7 @@ interface OverviewDisplayProps
 function OverviewDisplay({ className }: OverviewDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col gap-4 shadow-lg shadow-black/30",
+		"flex flex-col gap-4",
 		className
 	));
 

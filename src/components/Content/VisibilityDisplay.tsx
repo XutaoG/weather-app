@@ -13,7 +13,7 @@ interface VisibilityDisplayProps
 function VisibilityDisplay({ className }: VisibilityDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"shadow-md shadow-black/50 text-neutral-100",
+		"flex flex-col gap-4 text-neutral-100",
 		className
 	));
 
@@ -27,7 +27,7 @@ function VisibilityDisplay({ className }: VisibilityDisplayProps)
 	{
 		visibility = Math.round(currentHourWeatherData.values.visibility);
 	}
-	
+
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="Visibility" />

@@ -13,7 +13,7 @@ interface DailyForecastChartProps
 function DailyForecastChart({ className }: DailyForecastChartProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col gap-4 shadow-md shadow-black/50",
+		"flex flex-col gap-4",
 		className
 	));
 

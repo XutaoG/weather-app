@@ -32,10 +32,6 @@ body {
 *::-webkit-scrollbar-thumb {
 	background: rgba(0, 0, 0, 0.6);
 	border-radius: 10px;
-  }
-
-.logo-shadow {
-	text-shadow: 2px 2px 4px black;
 }
 
 .content-grid {
@@ -52,7 +48,7 @@ body {
 
 @media (max-width: 90rem) {
 	.content-grid {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 16rem 16rem;
 		grid-template-rows: 40rem 12rem 14rem 12rem 20rem 20rem 20rem;
 		grid-template-areas:
 			'daily daily'
@@ -65,10 +61,16 @@ body {
 	}
 }
 
+@media (max-width: 63rem) {
+	.content-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
 @media (min-width: 120rem) {
 	.content-grid {
 		grid-template-columns: 24rem 4rem 4rem 14rem 14rem 24rem;
-		grid-template-rows: 12rem 14rem 12rem 20rem;
+		grid-template-rows: 14rem 14rem 14rem 24rem;
 		grid-template-areas:
 			'daily daily daily humidity humidity hourly'
 			'daily daily daily precipitaton uv-index hourly'

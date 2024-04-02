@@ -11,7 +11,7 @@ interface PanelProps
 function Panel({ children, className }: PanelProps)
 {
 	const styles = twMerge(classNames(
-		"bg-mid-gray rounded-3xl p-4 border-[1px] border-stone-500/20",
+		"bg-mid-gray rounded-3xl p-4 border-[1px] border-stone-500/20 shadow-md shadow-black/40",
 		className
 	));
 

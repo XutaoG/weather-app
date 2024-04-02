@@ -14,7 +14,7 @@ interface HourlyForecastChartProps
 function HourlyForecastChart({ className }: HourlyForecastChartProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col gap-4 shadow-md shadow-black/50",
+		"flex flex-col gap-4",
 		className
 	));
 

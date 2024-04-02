@@ -10,7 +10,7 @@ interface TitleLabelProps
 function TitleLabel({ message, className }: TitleLabelProps)
 {
 	const styles = twMerge(classNames(
-		"w-fit px-4 py-1 rounded-3xl bg-blue text-neutral-100 font-semibold",
+		"w-fit px-4 py-1 rounded-3xl bg-blue text-neutral-100 text-lg font-semibold",
 		className
 	));
 

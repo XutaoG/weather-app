@@ -21,6 +21,11 @@ module.exports = {
 				"blue": "rgb(74, 122, 171)",
 				"dark-blue": "rgb(62, 104, 156)"
 			},
+			screens: {
+				"screen-sm": { "max": "63rem" },
+				"screen-md": { "max": "90rem" },
+				"screen-lg": { "min": "120rem" }
+			},
 		},
 	},
 	plugins: [],

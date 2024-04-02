@@ -11,8 +11,8 @@ const useCurrentHourWeatherData = () =>
 {
 	const hourlyWeatherList = useAppSelector(state => state.userData.weatherData!.timelines.hourly);
 
-	// const currentHour = new Date().getHours();
-	const currentHour = 10;
+	const currentHour = new Date().getHours();
+	// const currentHour = 10;
 
 	let currentHourWeatherData = hourlyWeatherList[0];
 

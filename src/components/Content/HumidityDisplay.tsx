@@ -13,7 +13,7 @@ interface HumidityDisplayProps
 function HumidityDisplay({ className }: HumidityDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col gap-4 shadow-md shadow-black/50 text-neutral-100",
+		"flex flex-col gap-4 text-neutral-100",
 		className
 	));
 

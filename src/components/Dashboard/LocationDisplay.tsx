@@ -13,7 +13,7 @@ interface LocationDisplayProps
 function LocationDisplay({ className }: LocationDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col p-0 shadow-md shadow-black/50",
+		"flex flex-col p-0",
 		className
 	));
 
@@ -21,20 +21,20 @@ function LocationDisplay({ className }: LocationDisplayProps)
 	const location = useAppSelector(state => state.userData.location);
 
 	// Fetching image URL
-	// const { data, isFetching } = useFetchPhotoQuery(`${location.city} ${location.state}`);
+	const { data, isFetching } = useFetchPhotoQuery(`${location.city} ${location.state}`);
 
-	// useEffect(() =>
-	// {
-	// 	dispatch(setIsFetchingData(isFetching));
-	// }, [dispatch, isFetching]);
+	useEffect(() =>
+	{
+		dispatch(setIsFetchingData(isFetching));
+	}, [dispatch, isFetching]);
 
-	// let imgSrc = data ? data : "";
+	let imgSrc = data ? data : "";
 
 	return (
 		<Panel className={ styles }>
 			<img
 				className="w-full h-60 object-cover rounded-t-3xl"
-				src={ "https://images.unsplash.com/photo-1617409123168-8fb039dd3b39?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+				src={ imgSrc }
 				alt="location" />
 			<div className="bg-transparent pl-6 py-3 rounded-b-3xl text-2xl text-blue font-bold">
 				{ `${location.city}, ${location.state}` }
