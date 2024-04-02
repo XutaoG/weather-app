@@ -13,7 +13,7 @@ interface DailyForecastChartProps
 function DailyForecastChart({ className }: DailyForecastChartProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-100 shadow-lg flex flex-col gap-4",
+		"flex flex-col gap-4 shadow-md shadow-black/50",
 		className
 	));
 
@@ -40,7 +40,7 @@ function DailyForecastChart({ className }: DailyForecastChartProps)
 							dataKey="temperature"
 							stroke="#c26932"
 							strokeWidth={ 3 } />
-						<CartesianGrid stroke="#ccc" />
+						<CartesianGrid stroke="#ffffff" />
 						<XAxis dataKey="date" />
 						<YAxis
 							type="number"

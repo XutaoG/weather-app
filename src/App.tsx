@@ -55,7 +55,7 @@ function App()
 				<Dashboard />
 				<ContentContainer />
 			</main>
-			<footer className="h-32 bg-neutral-400">
+			<footer className="h-32 bg-dark-gray-xl">
 			</footer>
 		</Fragment>
 	);

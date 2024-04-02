@@ -29,10 +29,10 @@ function DailyForecastCard({
 }: DailyForecastCardProps)
 {
 	const styles = twMerge(classNames(
-		"bg-transparent flex justify-between items-center rounded-2xl py-5 px-3",
+		"bg-transparent flex justify-between items-center rounded-2xl py-5 px-3 text-neutral-100",
 		{
-			"cursor-pointer hover:bg-black/20 hover:text-white": !selected,
-			"bg-neutral-400": selected
+			"text-neutral-300 cursor-pointer hover:bg-black/10 hover:text-neutral-100": !selected,
+			"bg-black/30": selected
 		},
 		className
 	));

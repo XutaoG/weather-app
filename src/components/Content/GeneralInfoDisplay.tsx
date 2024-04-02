@@ -29,7 +29,7 @@ function GeneralInfoDisplay({
 }: GeneralInfoDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-300 flex gap-4",
+		"bg-light-gray-xl flex gap-4 text-neutral-100",
 		className
 	));
 
@@ -52,7 +52,7 @@ function GeneralInfoDisplay({
 		<Panel className={ styles }>
 			<div className="min-w-56 flex flex-col justify-start items-start gap-4">
 				<TitleLabel message={ titleDisplay } />
-				<div className="flex items-center gap-2 text-lg text-blue-500">
+				<div className="flex items-center gap-2 text-lg text-dark-blue">
 					<IoCalendar className="text-4xl " />
 					{ date }
 				</div>
@@ -63,7 +63,7 @@ function GeneralInfoDisplay({
 				</div>
 			</div>
 			<div className="min-w-56 flex gap-8">
-				<div className="h-full w-1 bg-neutral-900 rounded-full" />
+				<div className="h-full w-1 bg-dark-gray-xl rounded-full" />
 				<div className="flex flex-col justify-center gap-2">
 					<div className="flex items-center gap-2">
 						<BsSunriseFill className="text-2xl text-yellow-500" />

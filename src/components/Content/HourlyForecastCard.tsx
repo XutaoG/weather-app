@@ -21,7 +21,7 @@ function HourlyForecastCard({
 }: HourlyForecastCardProps)
 {
 	const styles = twMerge(classNames(
-		"bg-transparent flex justify-between items-center rounded-2xl py-1 px-3",
+		"bg-dark-blue flex justify-between items-center rounded-3xl py-1 px-4 mr-4 text-neutral-100",
 		className
 	));
 

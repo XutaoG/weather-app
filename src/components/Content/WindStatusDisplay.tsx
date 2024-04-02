@@ -15,7 +15,7 @@ interface WindStatusDisplayProps
 function WindStatusDisplay({ windSpeed, windDirection, className }: WindStatusDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-300 min-h-48 min-w-48 flex flex-col gap-4",
+		"bg-light-gray-xl min-h-48 min-w-48 flex flex-col gap-4 text-neutral-100",
 		className
 	));
 

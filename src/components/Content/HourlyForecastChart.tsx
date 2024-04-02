@@ -14,7 +14,7 @@ interface HourlyForecastChartProps
 function HourlyForecastChart({ className }: HourlyForecastChartProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-100 shadow-lg flex flex-col gap-4",
+		"flex flex-col gap-4 shadow-md shadow-black/50",
 		className
 	));
 
@@ -41,7 +41,7 @@ function HourlyForecastChart({ className }: HourlyForecastChartProps)
 							dataKey="temperature"
 							stroke="#377fb3"
 							strokeWidth={ 3 } />
-						<CartesianGrid stroke="#ccc" />
+						<CartesianGrid stroke="#ffffff" />
 						<XAxis dataKey="time" />
 						<YAxis
 							type="number"

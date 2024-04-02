@@ -66,17 +66,17 @@ function SearchBar({ placeholderMessage, className }: SearchBarProps)
 	};
 
 	const renderedMatchingCities = showMatchingCities && matchingCities.length !== 0 ?
-		<Panel className="absolute top-10 left-0 z-20 w-full p-2">
+		<Panel className="bg-light-gray absolute top-10 left-0 z-20 w-full p-3">
 			<div
-				className="max-h-80 overflow-y-auto">
+				className="max-h-80 overflow-y-auto custom-scrollbar">
 				{
 					matchingCities.map((cityData) =>
 					{
 						return (
 							<div
 								key={ `${cityData.city},${cityData.state}` }
-								className="px-4 py-2 flex justify-between items-center 
-								hover:bg-neutral-300 rounded-2xl cursor-pointer"
+								className="px-4 py-2 flex justify-between items-center text-neutral-100/80
+								rounded-2xl cursor-pointer hover:bg-black/30 hover:text-white"
 								onClick={ () => onCityClick(cityData) }>
 								<div className="font-medium">{ cityData.city }</div>
 								<div>{ cityData.state }</div>
@@ -90,7 +90,8 @@ function SearchBar({ placeholderMessage, className }: SearchBarProps)
 	return (
 		<div className={ styles } ref={ divRef }>
 			<input
-				className="grow h-8 rounded-full pl-10 pr-4 shadow-rb focus:outline-none relative"
+				className="bg-mid-gray border-[1px] border-stone-500/20 grow h-8 rounded-full pl-10 pr-4
+				focus:outline-none relative text-white placeholder:text-gray-300"
 				type="text"
 				value={ searchInput }
 				placeholder={ placeholderMessage }
@@ -98,7 +99,7 @@ function SearchBar({ placeholderMessage, className }: SearchBarProps)
 				onChange={ onInputChange }
 				onFocus={ () => setShowMatchingCities(true) }
 			/>
-			<div className="text-2xl absolute left-1.5 top-1">
+			<div className="text-2xl absolute left-1.5 top-1 text-gray-300">
 				{ isFetchingData ? <GrPowerCycle className="animate-spin" /> : <IoSearch /> }
 			</div>
 			{ renderedMatchingCities }

@@ -15,7 +15,7 @@ interface DailyForecastDisplayProps
 function DailyForecastDisplay({ className }: DailyForecastDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-300 flex flex-col gap-4 drop-shadow-xl",
+		"flex flex-col gap-4 shadow-md shadow-black/50",
 		className
 	));
 

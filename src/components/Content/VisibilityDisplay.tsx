@@ -13,7 +13,7 @@ interface VisibilityDisplayProps
 function VisibilityDisplay({ className }: VisibilityDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-100 shadow-lg",
+		"shadow-md shadow-black/50 text-neutral-100",
 		className
 	));
 

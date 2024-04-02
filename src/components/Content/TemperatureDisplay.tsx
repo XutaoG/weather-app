@@ -25,7 +25,7 @@ function TemperatureDisplay({
 	className }: TemperatureDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-400 flex flex-col",
+		"bg-blue flex flex-col text-neutral-100",
 		className
 	));
 

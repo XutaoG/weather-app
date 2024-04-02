@@ -13,7 +13,7 @@ interface LocationDisplayProps
 function LocationDisplay({ className }: LocationDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"flex flex-col bg-transparent p-0",
+		"flex flex-col p-0 shadow-md shadow-black/50",
 		className
 	));
 
@@ -36,7 +36,7 @@ function LocationDisplay({ className }: LocationDisplayProps)
 				className="w-full h-60 object-cover rounded-t-3xl"
 				src={ "https://images.unsplash.com/photo-1617409123168-8fb039dd3b39?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
 				alt="location" />
-			<div className="bg-neutral-400 pl-6 py-3 rounded-b-3xl text-2xl text-white font-bold">
+			<div className="bg-transparent pl-6 py-3 rounded-b-3xl text-2xl text-blue font-bold">
 				{ `${location.city}, ${location.state}` }
 			</div>
 		</Panel>

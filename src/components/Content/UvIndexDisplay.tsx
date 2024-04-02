@@ -14,7 +14,7 @@ interface UvIndexDisplayProps
 function UvIndexDisplay({ className }: UvIndexDisplayProps)
 {
 	const styles = twMerge(classNames(
-		"bg-neutral-100 shadow-lg flex flex-col gap-4",
+		"flex flex-col gap-4 shadow-md shadow-black/50 text-neutral-100",
 		className
 	));
 
