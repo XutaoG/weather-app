@@ -11,7 +11,7 @@ function RealTimeDisplay()
 	}, []);
 
 	return (
-		<div className="text-4xl font-light">{ time }</div>
+		<div className="text-4xl font-light screen-sm-2xl:text-xl">{ time }</div>
 	);
 }
 

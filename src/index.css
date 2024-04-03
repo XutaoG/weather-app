@@ -40,7 +40,7 @@ body {
 	grid-template-rows: 12rem 14rem 12rem 20rem 20rem;
 	grid-template-areas:
 		'daily daily daily humidity humidity'
-		'daily daily daily precipitaton uv-index'
+		'daily daily daily precipitation uv-index'
 		'daily daily daily visibility visibility'
 		'hourly hourly-chart hourly-chart hourly-chart hourly-chart'
 		'hourly daily-chart daily-chart daily-chart daily-chart';
@@ -48,7 +48,20 @@ body {
 
 @media (max-width: 90rem) {
 	.content-grid {
-		grid-template-columns: 16rem 16rem;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 40rem 14rem 14rem 20rem 20rem;
+		grid-template-areas:
+			'daily daily hourly'
+			'precipitation humidity humidity'
+			'uv-index visibility visibility'
+			'hourly-chart hourly-chart hourly-chart'
+			'daily-chart daily-chart daily-chart'
+	}
+}
+
+@media (max-width: 70rem) {
+	.content-grid {
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 40rem 12rem 14rem 12rem 20rem 20rem 20rem;
 		grid-template-areas:
 			'daily daily'
@@ -61,9 +74,24 @@ body {
 	}
 }
 
-@media (max-width: 63rem) {
+@media (max-width: 55rem) {
 	.content-grid {
 		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 44rem 12rem 14rem 12rem 20rem 20rem 20rem;
+		grid-template-areas:
+			'daily daily'
+			'humidity humidity'
+			'precipitation uv-index'
+			'visibility visibility'
+			'hourly hourly'
+			'hourly-chart hourly-chart'
+			'daily-chart daily-chart'
+	}
+}
+
+@media (max-width: 35rem) {
+	.content-grid {
+		grid-template-rows: 30rem 8rem 9rem 8rem 20rem 20rem 20rem;
 	}
 }
 
@@ -73,7 +101,7 @@ body {
 		grid-template-rows: 14rem 14rem 14rem 24rem;
 		grid-template-areas:
 			'daily daily daily humidity humidity hourly'
-			'daily daily daily precipitaton uv-index hourly'
+			'daily daily daily precipitation uv-index hourly'
 			'daily daily daily visibility visibility hourly'
 			'hourly-chart hourly-chart hourly-chart hourly-chart daily-chart daily-chart'
 	}
@@ -88,7 +116,7 @@ body {
 }
 
 .precipitation-display {
-	grid-area: precipitaton
+	grid-area: precipitation
 }
 
 .uv-index-display {

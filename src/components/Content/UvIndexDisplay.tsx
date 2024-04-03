@@ -34,22 +34,22 @@ function UvIndexDisplay({ className }: UvIndexDisplayProps)
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="UV Index" />
-			<div className="grow flex flex-col justify-between items-start gap-4">
-				<div className="text-6xl font-extralight">
+			<div className="grow flex flex-col justify-between items-start gap-4 screen-sm-2xl:gap-2">
+				<div className="text-6xl font-extralight screen-sm-2xl:text-3xl">
 					{ dataNotAvailable ?
 						"N/A"
 						:
 						<Fragment>
 							{ uvIndex }
-							< span className="text-2xl font-normal">UV</span>
+							< span className="text-2xl font-normal screen-sm-2xl:text-sm">UV</span>
 						</Fragment>
 					}
 				</div>
 				<div className="self-stretch flex justify-between items-center">
-					<div className="self-start font-xl w-28">
+					<div className="self-start screen-sm-2xl:hidden">
 						{ dataNotAvailable ? null : getUvIndexRating(uvIndex) }
 					</div>
-					<WiDaySunny className="self-start text-6xl" />
+					<WiDaySunny className="self-start text-6xl screen-sm-2xl:text-3xl" />
 				</div>
 			</div>
 		</Panel >

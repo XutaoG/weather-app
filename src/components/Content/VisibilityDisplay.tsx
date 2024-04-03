@@ -32,13 +32,13 @@ function VisibilityDisplay({ className }: VisibilityDisplayProps)
 		<Panel className={ styles }>
 			<TitleLabel message="Visibility" />
 			<div className="grow flex justify-between items-center gap-4">
-				<div className="text-6xl font-extralight">
+				<div className="text-6xl font-extralight screen-sm-2xl:text-4xl">
 					{ visibility }
-					<span className="text-2xl font-normal">mi</span>
+					<span className="text-2xl font-normal screen-sm-2xl:text-sm">mi</span>
 				</div>
 				<div className="flex flex-col justify-between gap-4">
-					<BsEye className="text-6xl self-end" />
-					<div className="w-72 text-end">
+					<BsEye className="text-6xl self-end screen-sm-2xl:text-3xl" />
+					<div className="w-32 text-end screen-sm-2xl:text-sm">
 						{ getVisibilityRating(visibility) }
 					</div>
 				</div>

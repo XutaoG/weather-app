@@ -51,7 +51,7 @@ function App()
 
 	return (
 		<Fragment>
-			<main className="flex screen-sm:flex-col">
+			<main className="flex screen-sm-xl:flex-col">
 				<Dashboard />
 				<ContentContainer />
 			</main>
