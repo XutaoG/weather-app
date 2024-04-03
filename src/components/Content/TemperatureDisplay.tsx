@@ -32,27 +32,27 @@ function TemperatureDisplay({
 	return (
 		<Panel className={ styles }>
 			<div className="flex items-center gap-4">
-				<img className="w-20" src={ weatherImage } alt="weather" />
-				<div className="text-xl font-medium">{ weatherCondition }</div>
+				<img className="w-20 screen-sm-2xl:w-8" src={ weatherImage } alt="weather" />
+				<div className="text-xl font-medium screen-sm-2xl:text-sm">{ weatherCondition }</div>
 			</div>
-			<div className="flex gap-4 items-center">
-				<div className={ `text-8xl font-extralight ${getTemperatureFontColor(temperature)}` }>
+			<div className="flex gap-4 items-center screen-md:flex-col">
+				<div className={ `text-8xl font-extralight screen-md:text-6xl ${getTemperatureFontColor(temperature)}` }>
 					{ `${temperature}˚` }
 				</div>
-				<div className="flex flex-col gap-2">
-					<div className={ `text-2xl ${getTemperatureFontColor(temperatureHigh)}` }>
+				<div className="flex flex-col gap-2 text-2xl screen-md:flex-row screen-md:text-lg">
+					<div className={ getTemperatureFontColor(temperatureHigh) }>
 						{ `H: ${temperatureHigh}˚` }
 					</div>
-					<div className={ `text-2xl ${getTemperatureFontColor(temperatureLow)}` }>
+					<div className={ getTemperatureFontColor(temperatureLow) }>
 						{ `L: ${temperatureLow}˚` }
 					</div>
 				</div>
 			</div>
 			<div className="flex flex-col gap-2">
-				<div className="text-lg">Temperature Average</div>
-				<div className="flex items-center text-xl">
-					<IoThermometerOutline className={ `text-3xl ${getTemperatureFontColor(temperatureApparent)}` } />
-					<div>
+				<div className="text-lg screen-sm-2xl:text-sm">Temperature Average</div>
+				<div className="flex items-center text-xl screen-sm-2xl:text-sm">
+					<IoThermometerOutline className={ `text-3xl screen-sm-2xl:text-xl ${getTemperatureFontColor(temperatureApparent)}` } />
+					<div className="">
 						Feels like <span className={ `font-medium ${getTemperatureFontColor(temperatureApparent)}` }>
 							{ temperatureApparent }˚
 						</span>

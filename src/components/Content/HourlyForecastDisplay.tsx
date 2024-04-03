@@ -40,7 +40,7 @@ function HourlyForecastDisplay({ className }: HourlyForecastDisplayProps)
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="Hourly Forecast" />
-			<div className="grow flex flex-col gap-4 overflow-y-auto whitespace-nowrap">
+			<div className="grow flex flex-col gap-4 overflow-y-auto whitespace-nowrap screen-sm-2xl:gap-2">
 				{ renderedHourlyForecastCards }
 			</div>
 		</Panel>

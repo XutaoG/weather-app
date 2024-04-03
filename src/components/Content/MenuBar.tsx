@@ -48,6 +48,7 @@ function MenuBar({ className }: MenuBarProps)
 
 	const styles = twMerge(classNames(
 		"flex justify-between items-center py-2 px-8 bg-dark-gray-xl shadow-md shadow-black/80",
+		"screen-sm-xl:flex-col screen-sm-xl:gap-2",
 		className
 	));
 

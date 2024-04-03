@@ -22,9 +22,11 @@ module.exports = {
 				"dark-blue": "rgb(62, 104, 156)"
 			},
 			screens: {
-				"screen-sm": { "max": "63rem" },
+				"screen-lg": { "min": "120rem" },
 				"screen-md": { "max": "90rem" },
-				"screen-lg": { "min": "120rem" }
+				"screen-sm": { "max": "70rem" },
+				"screen-sm-xl": { "max": "55rem" },
+				"screen-sm-2xl": { "max": "35rem" }
 			},
 		},
 	},

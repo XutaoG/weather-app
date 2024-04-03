@@ -11,6 +11,7 @@ function TitleLabel({ message, className }: TitleLabelProps)
 {
 	const styles = twMerge(classNames(
 		"w-fit px-4 py-1 rounded-3xl bg-blue text-neutral-100 text-lg font-semibold",
+		"screen-sm-2xl:text-sm screen-sm-2xl:px-2",
 		className
 	));
 

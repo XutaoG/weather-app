@@ -27,15 +27,15 @@ function HourlyForecastCard({
 
 	return (
 		<div className={ styles }>
-			<div className="text-xl">
+			<div className="text-xl screen-sm-2xl:text-sm">
 				{ time }
 			</div>
-			<img className="w-12" src={ weatherImage } alt="weather" />
+			<img className="w-12 screen-sm-2xl:w-8" src={ weatherImage } alt="weather" />
 			<div className="flex flex-col items-center">
-				<div className={ `text-3xl font-light ${getTemperatureFontColor(temperature)}` }>
+				<div className={ `text-3xl font-light screen-sm-2xl:text-xl ${getTemperatureFontColor(temperature)}` }>
 					{ `${temperature}˚` }
 				</div>
-				<div className="flex justify-center items-center gap-1">
+				<div className="flex justify-center items-center gap-1 screen-sm-2xl:text-sm">
 					<BsCloudRain />
 					{ `${rainProbability}%` }
 				</div>

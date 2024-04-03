@@ -33,7 +33,7 @@ const useHourlyWeatherDataFromDay = () =>
 {
 	const hourlyWeatherList = useAppSelector(state => state.userData.weatherData!.timelines.hourly);
 	const dailyWeatherList = useAppSelector(state => state.userData.weatherData!.timelines.daily);
-	const selectedDayIndex = useAppSelector(state => state.userData.selectedDayIndex);
+	let selectedDayIndex = useAppSelector(state => state.userData.selectedDayIndex);
 
 	let numAdded = 0;
 	let hasStartedAdding = false;

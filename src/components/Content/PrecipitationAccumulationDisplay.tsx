@@ -31,15 +31,15 @@ function PrecipitationAccumulationDisplay({ className }: PrecipitationAccumulati
 	return (
 		<Panel className={ styles }>
 			<TitleLabel message="Precipitation" />
-			<div className="grow flex flex-col justify-between items-start gap-4">
-				<div className="text-6xl font-extralight">
+			<div className="grow flex flex-col justify-between items-start gap-4 screen-sm-2xl:gap-2">
+				<div className="text-6xl font-extralight screen-sm-2xl:text-3xl">
 					{ `${precipitation}″` }
 				</div>
 				<div className="self-stretch flex justify-between items-center">
-					<div className="self-start font-xl w-28">
+					<div className="self-start screen-sm-2xl:hidden">
 						{ getPrecipitationAccumulationRating(precipitation) }
 					</div>
-					<WiRain className="self-start text-6xl" />
+					<WiRain className="self-start text-6xl screen-sm-2xl:text-3xl" />
 				</div>
 			</div>
 		</Panel>

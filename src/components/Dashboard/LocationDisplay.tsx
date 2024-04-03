@@ -33,7 +33,7 @@ function LocationDisplay({ className }: LocationDisplayProps)
 	return (
 		<Panel className={ styles }>
 			<img
-				className="w-full h-60 object-cover rounded-t-3xl"
+				className="w-full h-60 object-cover rounded-t-3xl screen-sm-2xl:h-28"
 				src={ imgSrc }
 				alt="location" />
 			<div className="bg-transparent pl-6 py-3 rounded-b-3xl text-2xl text-blue font-bold">
