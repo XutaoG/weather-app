@@ -6,7 +6,7 @@ import { GrPowerCycle } from "react-icons/gr";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { getMatchingCityNames } from "../../common/Utils";
 import Panel from "../Reusable/Panel";
-import { setLocation } from "../../store";
+import { setExpandDashboard, setLocation } from "../../store";
 import CityData from "../../common/LocationData";
 import LocationData from "../../common/LocationData";
 
@@ -63,6 +63,8 @@ function SearchBar({ placeholderMessage, className }: SearchBarProps)
 
 		// Update global location
 		dispatch(setLocation(cityData));
+		// Hide dashboard
+		dispatch(setExpandDashboard(false));
 	};
 
 	const renderedMatchingCities = showMatchingCities && matchingCities.length !== 0 ?

@@ -1,12 +1,24 @@
+import { twMerge } from "tailwind-merge";
+import Dashboard from "../Dashboard/Dashboard";
 import Content from "./Content";
-import MenuBar from "./MenuBar";
+import classNames from "classnames";
 
-function ContentContainer()
+interface ContentContainerProps
 {
+	className?: string;
+}
+
+function ContentContainer({ className }: ContentContainerProps)
+{
+	const styles = twMerge(classNames(
+		"bg-dark-gray flex z-20 relative",
+		className
+	));
+
 	return (
-		<div className="flex-grow bg-dark-gray flex flex-col z-20 shadow-b shadow-black/80">
-			<MenuBar className="self-stretch sticky top-0" />
-			<Content className="grow self-center" />
+		<div className={ styles }>
+			<Dashboard className="z-10 absolute top-0 h-full" />
+			<Content className="grow" />
 		</div>
 	);
 }

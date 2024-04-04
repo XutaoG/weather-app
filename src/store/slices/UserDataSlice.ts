@@ -10,11 +10,13 @@ const initialState: {
 	selectedDayIndex: number;
 	weatherData: WeatherData | null;
 	isFetchingData: boolean;
+	expandDashboard: boolean;
 } = {
 	location: { city: "Orlando", state: "Florida" },
 	selectedDayIndex: 0,
 	weatherData: initialWeatherData,
-	isFetchingData: false
+	isFetchingData: false,
+	expandDashboard: true
 };
 
 const userDataSlice = createSlice({
@@ -40,6 +42,11 @@ const userDataSlice = createSlice({
 		{
 			// Payload contains new boolean whether is fetching data
 			state.isFetchingData = action.payload;
+		},
+		setExpandDashboard: (state, action: PayloadAction<boolean>) =>
+		{
+			// Payload contans new boolean whether to expand dashboard
+			state.expandDashboard = action.payload;
 		}
 	}
 });
@@ -50,5 +57,6 @@ export const
 		setLocation,
 		setSelectedDayIndex,
 		setWeatherData,
-		setIsFetchingData
+		setIsFetchingData,
+		setExpandDashboard
 	} = userDataSlice.actions;

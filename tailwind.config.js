@@ -6,9 +6,9 @@ module.exports = {
 	theme: {
 		extend: {
 			boxShadow: {
+				"r": "2px 0px 8px rgba(50, 50, 50, 0.25)",
 				"rb": "2px 2px 8px rgba(50, 50, 50, 0.25)",
 				"c": "0px 0px 10px rgba(50, 50, 50, 0.25)",
-				"r": "2px 0px 8px rgba(50, 50, 50, 0.25)",
 				"b": "0px 2px 6px rgba(50, 50, 50, 0.25)",
 				"b-s": "0px 2px 5px rgba(50, 50, 50, 0.5)"
 			},

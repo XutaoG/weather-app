@@ -8,7 +8,8 @@ import
 	setLocation,
 	setSelectedDayIndex,
 	setWeatherData,
-	setIsFetchingData
+	setIsFetchingData,
+	setExpandDashboard
 } from "./slices/UserDataSlice";
 
 const store = configureStore({
@@ -38,5 +39,6 @@ export
 	setLocation,
 	setSelectedDayIndex,
 	setWeatherData,
-	setIsFetchingData
+	setIsFetchingData,
+	setExpandDashboard
 };

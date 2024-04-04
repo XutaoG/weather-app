@@ -1,19 +1,16 @@
-import { Fragment } from "react/jsx-runtime";
 import ContentContainer from "./components/Content/ContentContainer";
-import Dashboard from "./components/Dashboard/Dashboard";
 import "./index.css";
 import WeatherQueryConfig from "./common/WeatherQueryConfig";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { setIsFetchingData, setSelectedDayIndex, setWeatherData, useFetchWeatherDataQuery } from "./store";
 import { useEffect } from "react";
 import Footer from "./Footer";
+import MenuBar from "./components/Content/MenuBar";
 
 function App()
 {
 	const dispatch = useAppDispatch();
 	const location = useAppSelector(state => state.userData.location);
-
-	console.log("Rerendering App...");
 
 	const weatherQueryConfig: WeatherQueryConfig = {
 		location: `${location.city} ${location.state}`,
@@ -42,21 +39,12 @@ function App()
 
 	}, [dispatch, location, data, error, isFetching]);
 
-	// const initialWeatherData: WeatherData = require("./asset/temp-weather-data.json");
-
-	// useEffect(() =>
-	// {
-	// 	dispatch(setWeatherData(initialWeatherData));
-	// }, [dispatch, initialWeatherData]);
-
 	return (
-		<Fragment>
-			<main className="flex screen-sm-xl:flex-col">
-				<Dashboard />
-				<ContentContainer />
-			</main>
+		<div className="grow flex flex-col">
+			<MenuBar className="self-stretch sticky top-0" />
+			<ContentContainer className="grow" />
 			<Footer />
-		</Fragment>
+		</div>
 	);
 }
 

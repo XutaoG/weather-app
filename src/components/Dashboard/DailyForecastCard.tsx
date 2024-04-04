@@ -29,7 +29,7 @@ function DailyForecastCard({
 }: DailyForecastCardProps)
 {
 	const styles = twMerge(classNames(
-		"bg-transparent flex justify-between items-center rounded-2xl py-5 px-3 text-neutral-100",
+		"bg-transparent flex justify-between items-center rounded-2xl py-3 px-3 text-neutral-100",
 		"screen-sm-2xl:py-2",
 		{
 			"text-neutral-300 cursor-pointer hover:bg-black/10 hover:text-neutral-100": !selected,
@@ -45,7 +45,7 @@ function DailyForecastCard({
 				{ `${day}, ${month}/${date}` }
 			</div>
 			<div className="flex flex-col items-center gap-1">
-				<div className={ `text-3xl screen-sm-2xl:text-xl ${getTemperatureFontColor(temperature)}` }>
+				<div className={ `text-2xl screen-sm-2xl:text-xl ${getTemperatureFontColor(temperature)}` }>
 					{ `${temperature}˚` }
 				</div>
 				<div className="flex justify-center items-center gap-1 screen-sm-2xl:text-sm">

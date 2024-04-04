@@ -17,7 +17,7 @@ interface ContentProps
 function Content({ className }: ContentProps)
 {
 	const styles = twMerge(classNames(
-		"p-8 h-min content-grid gap-4",
+		"p-8 content-grid gap-4 justify-center shadow-md shadow-black/80",
 		"screen-sm-2xl:p-2 screen-sm-2xl:gap-2",
 		className
 	));

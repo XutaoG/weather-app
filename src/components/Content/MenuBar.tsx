@@ -1,9 +1,9 @@
 import { twMerge } from "tailwind-merge";
 import classNames from "classnames";
 import { IoCalendar } from "react-icons/io5";
-import { BsCaretLeftFill, BsCaretRightFill } from "react-icons/bs";
+import { BsCaretLeftFill, BsCaretRightFill, BsLayoutSidebarInset } from "react-icons/bs";
 import { useAppDispatch, useAppSelector, useDailyWeatherData, useCurrentDayWeatherData } from "../../hooks";
-import { setSelectedDayIndex } from "../../store";
+import { setExpandDashboard, setSelectedDayIndex } from "../../store";
 
 interface MenuBarProps
 {
@@ -16,9 +16,15 @@ function MenuBar({ className }: MenuBarProps)
 
 	const selectedDayIndex = useAppSelector(state => state.userData.selectedDayIndex);
 	const location = useAppSelector(state => state.userData.location);
+	const expandDashboard = useAppSelector(state => state.userData.expandDashboard);
 
 	const weatherDataDayLength = useDailyWeatherData().length;
 	const selectedDate = new Date(useCurrentDayWeatherData().time);
+
+	const toggleDashboard = () =>
+	{
+		dispatch(setExpandDashboard(!expandDashboard));
+	};
 
 	const selectPreviousDay = () =>
 	{
@@ -47,20 +53,21 @@ function MenuBar({ className }: MenuBarProps)
 	));
 
 	const styles = twMerge(classNames(
-		"flex justify-between items-center py-2 px-8 bg-dark-gray-xl shadow-md shadow-black/80",
+		"flex justify-between items-center py-2 px-8 bg-dark-gray-xl shadow-md shadow-black/80 z-50",
 		"screen-sm-xl:flex-col screen-sm-xl:gap-2",
 		className
 	));
 
 	return (
 		<div className={ styles }>
+			<button
+				className="bg-blue w-10 h-6 flex justify-center items-center rounded-full
+				text-neutral-100 hover:cursor-pointer hover:bg-dark-blue"
+				onClick={ toggleDashboard }>
+				<BsLayoutSidebarInset />
+			</button>
 			<div
-				className="bg-blue w-6 aspect-square flex justify-center items-center 
-					rounded-full font-semibold shadow-c text-neutral-100">
-				˚F
-			</div>
-			<div
-				className="bg-blue min-w-fit w-56 flex justify-between items-center gap-4 
+				className="bg-blue min-w-fit w-56 h-6 flex justify-between items-center gap-4 
 				rounded-full shadow-c text-neutral-100">
 				<button
 					className={ previousButtonStyle }
@@ -86,7 +93,7 @@ function MenuBar({ className }: MenuBarProps)
 				</button>
 			</div>
 			<div
-				className="bg-blue px-2 flex justify-center items-center rounded-3xl shadow-c text-neutral-100">
+				className="bg-blue px-2 h-6 flex justify-center items-center rounded-3xl shadow-c text-neutral-100">
 				{ `${location.city}, ${location.state}` }
 			</div>
 		</div>
